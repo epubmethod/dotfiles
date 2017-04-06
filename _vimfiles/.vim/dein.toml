@@ -1,0 +1,181 @@
+#pluginManger
+[[plugins]]
+repo = "Shougo/dein.vim"
+
+#async process
+[[plugins]]
+repo = "Shougo/vimproc.vim"
+build = "make"
+
+#langs
+[[plugins]]
+repo = "cespare/vim-toml"
+on_ft = "toml"
+
+[[plugins]]
+repo = "tpope/vim-rails"
+on_ft = "ruby"
+
+[[plugins]]
+repo = "vim-ruby/vim-ruby"
+on_ft = "ruby"
+
+#unite
+[[plugins]]
+repo = "Shougo/unite.vim"
+
+[[plugins]]
+repo = "ujihisa/unite-colorscheme"
+depends = ["Shougo/unite.vim"]
+
+[[plugins]]
+repo = "basyura/unite-rails"
+depends = ["Shougo/unite.vim"]
+
+#static code analysis
+[[plugins]]
+repo = "scrooloose/syntastic"
+on_ft = "ruby"
+
+#reference
+[[plugins]]
+repo = "thinca/vim-ref"
+
+[[plugins]]
+repo = "yuku-t/vim-ref-ri"
+
+#tag-jump
+[[plugins]]
+repo = "szw/vim-tags"
+
+#tag-autoClose
+[[plugins]]
+repo = "tpope/vim-endwise"
+
+[[plugins]]
+repo = "Townk/vim-autoclose"
+
+#toggle keyward
+[[plugins]]
+repo = "AndrewRadev/switch.vim"
+hook_add = """
+  let g:switch_mapping = "-"
+"""
+
+#snippet
+[[plugins]]
+repo = "Shougo/neosnippet.vim"
+hook_add = """
+  imap <C-k>    <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>    <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>    <Plug>(neosnippet_expand_target)
+"""
+
+[[plugins]]
+repo = "honza/vim-snippets"
+depends = ["Shougo/neosnippet.vim"]
+hook_add = """
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  let g:neosnippetdisable_runtime_snippets = {"_": 1}
+  let g:neosnippet#snippets_directory = "~/.cache/dein/repos/github.com/honza/vim-snippets/snippets"
+"""
+
+#file treeExplore
+[[plugins]]
+repo = "scrooloose/nerdtree"
+hook_add = """
+  let NERDTreeShowHidden = 1
+  nmap <silent><C-e> : NERDTreeToggle<CR>
+"""
+
+[[plugins]]
+repo = "jistr/vim-nerdtree-tabs"
+depends = ["scrooloose/nerdtree"]
+hook_add = """
+  if argc() == 0
+    let g:nerdtree_tabs_open_on_console_startup = 1
+  end
+"""
+
+[[plugins]]
+repo = "Xuyuanp/nerdtree-git-plugin"
+depends = ["scrooloose/nerdtree"]
+
+#modified marker
+[[plugins]]
+repo = "airblade/vim-gitgutter"
+hook_add = """
+  let g:gitgutter_map_keys = 0
+"""
+
+#custom statusBar
+[[plugins]]
+repo = "vim-airline/vim-airline"
+hook_add = """
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_splits = 0
+  let g:airline#extensions#tabline#show_tab_type = 0
+  let g:airline#extensions#tabline#show_close_button = 0
+  let g:airline#extensions#tablineleft_sep = " "
+  let g:airline#extensions#tabline#left_alt_sep = "|"
+"""
+
+[[plugins]]
+repo = "vim-airline/vim-airline-themes"
+hook_add = """
+  let g:airline_powerline_fonts = 1
+"""
+
+[[plugins]]
+repo = "tpope/vim-fugitive"
+hook_add = """
+  let g:airline#extensions#branch#enabled = 1
+"""
+
+#trim whiteSpace
+[[plugins]]
+repo = "bronson/vim-trailing-whitespace"
+hook_add = """
+  autocmd BufWritePre * :FixWhitespace
+"""
+
+#indentLine
+[[plugins]]
+repo = "Yggdroot/indentLine"
+
+#auto compleition
+[[plugins]]
+repo = "Shougo/neocomplete.vim"
+hook_add = """
+  let g:acp_enableAtStartup = 0
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#sources#omni#input_patterns = {
+  \       "ruby" : '[^. *\t]\.\|\h\w*::',
+  \}
+  let g:neocomplete#text_mode_filetypes = {"_": 1}
+  let g:neocomplete_enable_auto_select = 1
+  let g:auto_ctags = 1
+"""
+
+[[plugins]]
+repo = "osyo-manga/vim-monster"
+hook_add = """
+  let g:monster#compleition#rcodetools#backend = "async_rct_complete"
+"""
+
+[[plugins]]
+repo = "ujihisa/neco-look"
+
+#code highlight
+[[plugins]]
+repo = "todesking/ruby_hl_lvar.vim"
+on_ft = "ruby"
+
+#color scheme
+[[plugins]]
+repo = "jonathanfilip/vim-lucius"
+hook_add = """
+  au MyAutoCmd VimEnter * nested colorscheme lucius
+  au MyAutoCmd VimEnter,colorscheme * nested LuciusBlack
+"""
+
